@@ -1,0 +1,21 @@
+
+<div id="posts-index">
+  <div class="posts-area">
+    <% @posts.each_with_index do |p, i| %>
+       <% if i%3 === 0 %>
+         <div class="posts-index-row">
+       <% end %>
+            <div class="posts-index-image_div">
+                <% if p.images.present? %>
+                  <%= link_to post_path(p) do %>
+                     <%= image_tag p.images[0].url, class: "posts-index-image" %>
+                  <% end %>
+                <% end %>
+                <span class="images-count"><%= p.images.count %></span>
+            </div>
+        <% if i%3 === 2 %>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>

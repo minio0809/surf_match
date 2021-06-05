@@ -1,0 +1,17 @@
+
+<div id="post-show">
+    
+    <div><%= @post.title %></div>
+    <div class="post-show-images">
+        <% @post.images.each do |image| %>
+        <%= image_tag image.url, class: "post-show-image" %>
+    <% end %>
+        
+    </div>
+    <div>
+        <%= link_to favorite_post_path, class: "btn surf-good-button text-favorite w-100" do %>
+        <i class="fa fa-heart"></i><%= current_user.likes?(@post) ? "いいね解除" : "いいね" %>
+        <% end %>
+    </div>
+</div>
+

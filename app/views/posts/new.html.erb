@@ -1,0 +1,36 @@
+<div id="post-new">
+<h1>新規投稿</h1>
+<%= form_with model: @post do |f| %>
+
+<div class= "field">
+  名前:
+      <%= f.text_field :user_id%>
+  </div>
+
+  <div class= "field">
+  タイトル:
+      <%= f.text_field :title %>
+  </div>
+  
+  <div class= "field">
+  コメント:
+     <%= f.text_field :content %>
+  </div>    
+  
+  <div class= "field">
+  画像:
+     <%= f.file_field :images, multiple: true %>
+  </div>
+  
+  <div class= "field">
+  動画:
+     <%= f.file_field :movie %>
+  </div>
+  
+  <div class= "field">
+      <%= f.submit "投稿する" %>
+  </div>
+<% end %>
+
+</div>
+

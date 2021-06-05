@@ -1,0 +1,52 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#room-show {
+    width: 80%;
+    margin: 50px auto;
+    
+    .messages-area {
+        height: calc(100vh - 300px);
+        background: #87cefa;
+        padding: 20px 50px;
+        
+        .message-right {
+            text-align: right;
+            margin-bottom: 10px;
+            
+            
+            
+            
+            span {
+                
+                display: inline-block;
+                padding: 0.7rem;
+                width: 66%;
+                background: lightgreen;
+                border-radius: 5px;
+            }
+        }
+        
+        .message-left {
+            margin-bottom: 10px;
+            
+            
+            span {
+                display: inline-block;
+                padding: 0.7rem;
+                width: 66%; 
+                background: #fff;
+                border-radius: 5px;
+            }
+        }
+    }
+    
+  
+    textarea#message_content {
+      height: 2rem;
+      width:  80%;
+    }
+    
+}

@@ -1,0 +1,41 @@
+<!--<= render 'home/slider%>-->
+<div class="main">
+  
+     <div class="btn-area">
+        <%= link_to "新規登録", signup_path, class: "btn btn-primary" %>
+        <%= link_to "ログイン", login_path, class: "btn btn-success" %>
+     </div>
+     <img src="images/surf2.jpeg">  
+     <div class="top-message">
+         we love surf. Let's surf together.
+         お気に入りのライダーを見つけていいねを贈ろう。
+         お互いにフォローが出来たら、メッセージで情報の交換をしてみよう！
+         Hope your wondafull surf life.
+     </div>
+</div>
+
+
+<style>
+   .main {
+      position: relative;
+   }
+   
+   
+   .btn-area {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);     
+   }
+   
+   .top-message {
+      position: absolute;
+      bottom: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%); 
+   }
+</style>

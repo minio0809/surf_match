@@ -1,0 +1,176 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+#signup {
+    width: 50%;
+    margin: 100px auto;
+    background: #f5f5f5;
+    text-align: center;
+    padding: 50px 100px;
+    
+    .field {
+        margin-bottom: 30px;
+    }
+    
+}
+
+#edit {
+    width: 50%;
+    margin: 100px auto;
+    background: #f5f5f5;
+    text-align: center;
+    padding: 50px 100px;
+    
+    .field {
+        margin-bottom: 30px;
+    }
+    
+}
+
+.search-area {
+    width: 90%;
+    text-align: right;
+    margin: 0 auto 50px;
+}
+
+
+
+
+
+#surfers {
+    
+    width: 90%;
+    margin: 0 auto;
+    padding: 50px 0;
+    
+
+    background: #2e8719;
+    
+    .surfers-row {
+       display: flex;
+       justify-content: center;
+    }
+    
+    .card {
+        width: 20%;
+        margin: 10px 10px;
+
+        
+        .btn {
+            width: 50%;
+            margin: 10px auto;
+        }
+        
+        p {
+            text-align: center;
+        }
+        
+       img:hover {
+            margin: 0 5px;
+            overflow: hidden;
+            transform: scale(1.2);
+            transition-duration: 0.3s;
+        }        
+        
+    .users-image {
+        border-radius: 50%;
+     }    
+    }
+    
+    
+    
+    img {
+        transition-duration: 0.3s;
+    }
+    
+    
+}
+
+
+#surf-profile {
+    
+    .profile-area {
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .user-name {
+        margin: 50px 0;
+        text-align: center;
+    }
+    
+    .profile-info {
+        width: 40%;
+    }
+    
+    .profile-images {
+        width: 60%;
+    }
+    
+    .user-show-other {
+        display: flex;
+        width: 80%;
+        margin: 50px auto;
+        justify-content: space-between;
+    }    
+        
+    .card {
+        width: 30%;
+        
+                
+        .fontawesome {
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+         .far {
+            font-size: 200px
+            
+           }        
+        }
+        
+    }
+    
+    
+    .profile-images-area {
+        height: 300px;
+        // width: 60%;
+        // background: lightgray;
+        overflow-x: scroll;
+        white-space: nowrap; 
+    }
+    
+    .profile-image {
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
+    }
+    
+    
+    @media screen and (max-width: 700px) { 
+        
+        .user-show-other {
+            display: block;
+            
+            .card {
+                width: 100%;
+                margin: 50px 0;
+                
+               .card-img-top {
+                   height: 300px;
+                   object-fit: cover;
+               }
+            }
+        }
+        
+    }
+
+
+
+
+
+

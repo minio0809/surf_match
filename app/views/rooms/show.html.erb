@@ -1,0 +1,24 @@
+  <div id="room-show">
+    <h3>Chat room</h3>
+     <div class="messages-area">
+        <% @messages.each do |message| %>
+          <%if message.user_id === current_user.id %>
+            <div class="message-right"><span><%= message.content %></span></div>
+          <% else %>
+            <div class="message-left"><span><%= message.content %></span></div>
+          <% end %>
+        <% end %>
+    
+    
+      </div>
+    <hr>
+    <%= form_for @message do |f| %>
+      <%= f.hidden_field :room_id, :value => @room.id %>
+      <div><%= f.text_area :content %><%= f.submit "送信" %></div>
+    <% end %>
+  </div>
+  
+  
+  <style>
+  
+  </style>

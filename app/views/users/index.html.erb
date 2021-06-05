@@ -1,0 +1,46 @@
+<h2 style="text-align: center; margin: 50px 0;">Surfers</h2>
+
+<!-- 検索エリア  -->
+<div class="search-area">
+  <%= form_with url: users_path, method: "get", local: true do |f| %>
+  歴 :1年未満：<%= f.radio_button :history, 0 %>
+    1年〜3年：<%= f.radio_button :history, 1 %>
+    3年〜5年：<%= f.radio_button :history, 3 %>
+    5年〜8年：<%= f.radio_button :history, 5 %>
+    10年以上：<%= f.radio_button :history, 10 %><br>
+    レベル:最上級 : <%= f.radio_button :level,"s" %>
+    上級 : <%= f.radio_button :level,"a" %>
+    中級 : <%= f.radio_button :level,"b" %>
+    初級 : <%= f.radio_button :level,"c" %><br>
+    
+    ホームポイント：<%= f.text_field :homepoint %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+<!-- 検索エリア end-->
+
+<div id="surfers">
+    <% @users.each_with_index do |user, i| %>
+        <% if i%4 === 0 %>
+          <div class="surfers-row">
+        <% end %>
+            <div class="card">
+              <% if user.images.present? %>
+                <%= image_tag user.images[0].url, class: "users-img" %>
+              <% else %>
+                <img src="images/surf6.jpeg" class="users-img">
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= user.name %></h5>
+                <p class="card-text">home point：<%= user.homepoint %></p>
+              </div>
+              
+            <P>歴：<%= user.history %>年</p>
+            <a href="/users/<%= user.id %>" class="btn btn-primary">詳細</a>
+              
+            </div>
+        <% if i%4 === 3 %>
+          </div>
+        <% end %>
+    <% end %>
+</div>

@@ -1,0 +1,94 @@
+<div id= "edit">
+<h2>プロフィール変更<!--<%= resource_name.to_s.humanize %>--></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  
+  <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control', required: true %>
+    </div>
+
+ <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' , required: true  %>
+    </div> 
+    
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+  
+  <div class="field">
+      <%= f.label "性別" %><br />
+      <div class="radio-inline">
+        <%= f.radio_button :gender, "m" %>男性
+        <%= f.radio_button :gender, "f" %>女性
+        <%= f.radio_button :gender, "o" %>その他
+      </div>
+    </div>
+    
+    <div class="field">
+      <%= f.label "居住地" %><br />
+      <%= f.collection_select(:prefecture_id, Prefecture.all , :id, :name) %>
+    </div>    
+    
+    <div class="field">
+      <%= f.label "ホームポイント" %><br />
+      <%= f.text_field :homepoint, autofocus: true, autocomplete: "homepoint", class: 'form-control', required: true %>
+    </div>  
+    
+    <div class="field">
+      <%= f.label "歴" %><br />
+      <%= f.number_field :history, autofocus: true, autocomplete: "history", required: true %>
+    </div>
+    
+    <div class="field">
+      <%= f.label "レベル" %><br />
+      <%= f.select :level, {'最上級': "s", '上級': "a",  "中級": "b", "初級": "c"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+    </div> 
+    
+    <div class="field">
+      <%= f.label :board_type %><br />
+      <%= f.select :board_type, {"ショート": "s", 'ロング': "l"}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %> 
+     </div>  
+     
+    <div class="field">
+      <%= f.label "コーチ" %><br />
+      <%= f.radio_button :teach, "p" %>可能
+      <%= f.radio_button :teach, "i" %>不可能
+    </div>  
+
+  <div class="field">
+    <%= f.label :password %> <i>(変更しない場合は空白)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><i>(パスワードの確認）</i><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(変更を確定するには、現在のパスワードが必要です)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+  
+  <div class="field">
+      <%= f.label :images %>:プロフィール写真<br />
+      <%= f.file_field :images, multiple: true %>
+    </div>  
+
+  <div class="actions">
+    <%= f.submit "更新" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
