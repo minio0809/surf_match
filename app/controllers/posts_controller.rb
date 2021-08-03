@@ -25,9 +25,9 @@ class PostsController < ApplicationController
   def index
     if params[:id].present?
       @user = User.find(params[:id])
-      @posts = @user.posts.order(creaeted_at: :desc)
+      @posts = @user.posts.order(created_at: :desc)
     else
-      @posts = Post.all.order(creaeted_at: :desc)
+      @posts = Post.all.order(created_at: :desc)
     end
     
   end
