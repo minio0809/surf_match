@@ -8,35 +8,16 @@
         <li class="nav-item">
         <a class="nav-link active" role="button" aria-current="page" href="#"></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            アカウント
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <% if user_signed_in? %> 
-              <li>
-                <% if current_user.images.present? %>
-                    <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
-                      <%= image_tag current_user.images[0].url, class: "header-icon" %><%= current_user.name %>
-                    <% end %>
-                <% else %>
-                    <img src="images/surf6.jpeg" class="users-img">
-                <% end %>
-              </li>
-              <li><%= link_to "サインアウト", logout_path, method: "delete", class: "dropdown-item" %></li>
-              <!--<li><a class="dropdown-item" href="/users/sign_out", method="delete">ログアウト</a></li>-->
-            <% else %>
-              <li><%= link_to "アカウント登録", signup_path, class: "dropdown-item" %></li>
-              <li><%= link_to "サインイン", login_path, class: "dropdown-item" %></li>
-            <% end %>
-          </ul>
-        </li>
                    
        <% if user_signed_in? %> 
           <li class="nav-item"><%= link_to "NewPost", new_post_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Posts", posts_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Surfers", users_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "edit", edit_user_registration_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "サインアウト", logout_path, method: "delete", class: "nav-link" %></li>
+       <% else %>
+          <li><%= link_to "アカウント登録", signup_path, class: "nav-link" %></li>
+          <li><%= link_to "サインイン", login_path, class: "nav-link" %></li>       
        <% end %>
        
       </ul>

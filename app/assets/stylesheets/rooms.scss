@@ -10,13 +10,14 @@
     .messages-area {
         height: calc(100vh - 300px);
         background: #87cefa;
-        padding: 20px 50px;
+        padding: 20px 10px;
+        overflow-y: scroll;
         
         .message-right {
             text-align: right;
             margin-bottom: 10px;
             
-            
+        
             
             
             span {
@@ -41,12 +42,36 @@
                 border-radius: 5px;
             }
         }
+        
+        
+        .chat-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
     }
     
   
     textarea#message_content {
-      height: 2rem;
+      height: 40px;
       width:  80%;
     }
+    
+    .send-message-input {
+        position: relative;
+        
+        span {
+            position: absolute;
+            top: 0;
+            right: 0px;
+        }
+    }
+    
+    
+    .message-date-changed {
+        text-align: center;
+    }
+    
+    
     
 }

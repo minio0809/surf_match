@@ -3,11 +3,14 @@
 <!-- 検索エリア  -->
 <div class="search-area">
   <%= form_with url: users_path, method: "get", local: true do |f| %>
-  歴 :1年未満：<%= f.radio_button :history, 0 %>
-    1年〜3年：<%= f.radio_button :history, 1 %>
-    3年〜5年：<%= f.radio_button :history, 3 %>
-    5年〜8年：<%= f.radio_button :history, 5 %>
-    10年以上：<%= f.radio_button :history, 10 %><br>
+  　歴:
+  　<%= f.radio_button :history, 0 %>1年未満&nbsp;&nbsp;
+    <%= f.radio_button :history, 1 %>1年〜3年&nbsp;&nbsp;
+    <%= f.radio_button :history, 3 %>3年〜5年&nbsp;&nbsp;
+    <%= f.radio_button :history, 5 %>5年〜8年&nbsp;&nbsp;
+    <%= f.radio_button :history, 10 %>10年以上
+    
+    <br>
     レベル:最上級 : <%= f.radio_button :level,"s" %>
     上級 : <%= f.radio_button :level,"a" %>
     中級 : <%= f.radio_button :level,"b" %>
@@ -20,6 +23,9 @@
 <!-- 検索エリア end-->
 
 <div id="surfers">
+    <% if @users.count === 0 %>
+      <div class="no-surfer-message">該当するサーファーはいません</div>
+    <% end %>
     <% @users.each_with_index do |user, i| %>
         <% if i%4 === 0 %>
           <div class="surfers-row">

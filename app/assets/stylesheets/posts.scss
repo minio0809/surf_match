@@ -14,7 +14,7 @@
     .posts-index-row {
         display: flex;
         width: 90%;
-        margin: 30px auto;
+        margin: 50px auto;
         justify-content: space-between;
         
         div {
@@ -41,14 +41,37 @@
         color: black;
         background: lightgray;
     }
+    
+    .posts-no-index {
+        color: #fff;
+        background: green;
+        text-align: center;
+        width: 80%;
+        margin: 50px auto 0;
+        font-size: 2rem;
+        height: 200px;
+        line-height: 200px;
+    }
+    
+    
+    @media screen and (max-width: 768px) {
+         .posts-no-index {
+            //  rem は 1remが16px
+             font-size: 1rem;
+         }
+    }
+    
+    
 }
 
 
 #post-show {
+    margin: 50px auto;
+    text-align: center;
     
     .post-show-images {
         width: 80%;
-        margin: 50px auto;
+        margin: 50px auto 10px;
         overflow-x: scroll;
         white-space: nowrap;
     }
@@ -57,6 +80,11 @@
         width: 28vw;
         height: 28vw;
         object-fit: cover;
+    }
+    
+    .post-show-title {
+        font-size: 1.5rem;
+        font-weight: bold;
     }
 }
 

@@ -72,7 +72,7 @@
             margin: 0 5px;
             overflow: hidden;
             transform: scale(1.2);
-            transition-duration: 0.3s;
+            transition-duration: 1s;
         }        
         
     .users-image {
@@ -83,14 +83,50 @@
     
     
     img {
-        transition-duration: 0.3s;
+        transition: 1s;
+        // vwは画面の左端から右端を100vwとしたときのサイズ指定
+        width: 17.8vw;
+        height: 17.8vw;
+        object-fit: cover;
     }
     
+    .no-surfer-message {
+        text-align: center;
+        color: #fff;
+        font-size: 1.5rem;
+        
+    }
     
-}
+    @media screen and (max-width: 768px) {
+        .surfers-row {
+          display: block;
+        }
+        
+        .card {
+            width: 60%;
+            margin: 0 auto 20px;
+        }
+        
+        img {
+            transition: 1s;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    
+} 
+    
+    
+    
+    
+
 
 
 #surf-profile {
+    
+    width: 80%;
+    margin: 0 auto;
     
     .profile-area {
         display: flex;
@@ -99,6 +135,8 @@
     }
     
     .user-name {
+        font-size: 2rem;
+        font-weight: 600;
         margin: 50px 0;
         text-align: center;
     }
@@ -128,12 +166,55 @@
         }
         
          .far {
-            font-size: 200px
+            font-size: 10vw
             
            }        
         }
         
+    @media screen and (max-width: 768px) {
+        
+               .user-name {
+                font-size: 1.3rem;
+                font-weight: 600;
+               }
+        
+            .user-show-other {
+                display: block;
+                width: 100%;
+                margin: 50px auto;
+            }  
+            
+            .card {
+                width: 80%;
+                margin: 0 auto 30px;
+                
+               .far {
+                   font-size: 30vw
+                
+               }  
+            }
+            
+            .profile-area {
+                display: block;
+            }
+            
+                
+            .profile-info {
+                width: 100%;
+                margin: 0 auto 30px;
+            }
+            
+            .profile-images {
+                width: 100%;
+                margin: 0 auto;
+            }
+            
+            
+        
     }
+        
+        
+}
     
     
     .profile-images-area {

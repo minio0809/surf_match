@@ -3,15 +3,18 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
+   
   end
   
   
   def create 
     @post = Post.new(post_params)
     if @post.save 
+      
       redirect_to posts_path
     else 
-      render :new
+      logger.debug("================= image error = #{@post.errors.messages[:images]}" )
+      render :new 
     end
   end
 
@@ -20,7 +23,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(creaeted_at: :desc)
+    if params[:id].present?
+      @user = User.find(params[:id])
+      @posts = @user.posts.order(creaeted_at: :desc)
+    else
+      @posts = Post.all.order(creaeted_at: :desc)
+    end
+    
   end
 
   def edit

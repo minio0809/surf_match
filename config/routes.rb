@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
+      get 'posts' => 'posts#index'
+    end
+    member do
       get :following, :followers
     end
   end
@@ -27,8 +30,7 @@ Rails.application.routes.draw do
     delete "logout", :to => "users/sessions#destroy"
   end
   
-  resources :users, only: [:show, :index]
-  
+
   resources :posts do
     member do
      get :favorite
@@ -36,7 +38,6 @@ Rails.application.routes.draw do
   end
   resources :relationships,       only: [:create, :destroy]
   
-  resources :users
   root "users#index" #この辺りは作成するアプリの要件により異なる。
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]

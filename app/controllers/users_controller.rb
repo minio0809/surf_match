@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     @currentUserEntry = Entry.where(user_id: current_user.id)
     #洗濯したユーザのメッセージルーム情報を取得する
     @userEntry = Entry.where(user_id: @user.id)
-
+    
+    @isRoom = false
     #current_userと選択したユーザ間に共通のメッセージルームが存在すればフラグを立てる
     unless @user.id == current_user.id
       @currentUserEntry.each do |cu|
@@ -28,11 +29,12 @@ class UsersController < ApplicationController
           if cu.room_id == u.room_id then
             @isRoom = true
             @roomId = cu.room_id
+            @room = Room.find(@roomId)
           end
         end
       end
       #無ければ作る
-      unless @isRoom
+      if !@isRoom
         @room = Room.new
         @entry = Entry.new
       end

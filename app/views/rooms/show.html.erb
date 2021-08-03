@@ -1,24 +1,38 @@
   <div id="room-show">
     <h3>Chat room</h3>
-     <div class="messages-area">
+     <div id="chat-area" class="messages-area">
+        <% pre_date = "" %>
         <% @messages.each do |message| %>
-          <%if message.user_id === current_user.id %>
-            <div class="message-right"><span><%= message.content %></span></div>
-          <% else %>
-            <div class="message-left"><span><%= message.content %></span></div>
+          <% if pre_date != message.created_at.to_date %>
+            <div class="message-date-changed">----------- <%= message.created_at.to_date %> ------------</div>
           <% end %>
-        <% end %>
-    
+          <%if message.user_id === current_user.id %>
+            
+            <div class="message-right"><%= message.created_at.strftime("%H:%M") %>&nbsp;&nbsp;<span><%= simple_format(message.content) %></span></div>
+          <% else %>
+            <div><%= image_tag User.find(message.user_id).images[0].url, class: "chat-icon" %></div>
+            <div class="message-left"><span><%= simple_format(message.content) %></span>&nbsp;&nbsp;<%= message.created_at.strftime("%H:%M") %></div>
+            
+          <% end %>
+        
+        
+          <% pre_date = message.created_at.to_date %>
+        <% end %>    <!-- each end -->
     
       </div>
     <hr>
     <%= form_for @message do |f| %>
       <%= f.hidden_field :room_id, :value => @room.id %>
-      <div><%= f.text_area :content %><%= f.submit "送信" %></div>
+      <div class="send-message-input">
+          <%= f.text_area :content %>
+          <span><%= f.submit "送信", class: "btn btn-info" %></span>
+      </div>
     <% end %>
   </div>
   
-  
-  <style>
-  
-  </style>
+<script>
+  $(document).on('turbolinks:load', function() { 
+     const obj = document.getElementById("chat-area");
+ 　　 obj.scrollTop = obj.scrollHeight;
+  });
+</script>

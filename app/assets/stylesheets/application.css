@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+
+
+
+
+
+.user-name{
+    text-align: center;
+}
+
+
+
+footer {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background: lightgray;
+    margin-top: 50px;
+}
+
+#main {
+    min-height: calc(100vh - 206px);
+}
+
+    
+
+
